@@ -13,20 +13,31 @@ wget https://github.com/openecos-projects/ecos-studio/releases/latest/download/<
 chmod +x <latest-release-file>.AppImage
 ./<latest-release-file>.AppImage
 ```
+如果遇到报错`dlopen(): error loading libfuse.so.2`, 安装 libfuse2 库即可
+```sh
+sudo apt install libfuse2
+```
+![ecos-studio-HOME](picture/ecos-studio-HOME.png)
 
-![ecos-studio-HOME](ecos-studio-HOME.png)
-
+### 下载资源
 点击`Recourse Manager`进入资源管理器, 在左侧一栏下载相应资源
 - `MPC`: `mpc-frame`
 - `PDKs`: `ics55`
 
-![Resource-Manager](Resource-Manager.png)
+![MPC-frame-resource.png](picture/MPC-frame-resource.png)
 
-基于`ecos-frame`创建新的`workspace`: 返回主页依次点击`Project Management` -> `New Project`, 开始创建新的项目, 指定项目名称, 设计名称, 设计存储路径, 下拉`Managed MPC`选择`mpc-frame`, 最后滑动到底部点击`Create`
+![Resource-Manager](picture/Resource-Manager.png)
 
-![Project-Management](Project-Management.png)
+### 创建新项目
+基于`ecos-frame`创建，回到Project Management
 
-回到Project Management点击`New workspace`创建新的工作区
+![Project-Management](picture/Project-Management.png)
+
+点击`New project`创建新的项目
+
+![new-project](picture/new-project.png)
+
+点击`New workspace`创建新的工作区
 - `Project Setup` - 选择已有项目目录或创建新的项目目录
 - `Basic Info` - 设置工作区名称并指定工作区路径
 - `Flow Setup` - 从综合到硬化, 选择固定的硬化流程范围, 默认即可
@@ -34,16 +45,30 @@ chmod +x <latest-release-file>.AppImage
 - `PDK Config` - 使用ECC默认的PDK配置, 或手动选择工艺LEF、单元LEF和Liberty文件
 - `Spec Setting` - 配置设计、时钟、Die面积、利用率、扇出及相关参数
 
-对于`mpc-frame`设计的项目, 选择"mpc-frame/designs/your_design/rtl", 系统会自动识别RTL代码, 用户需要手动删除tb仿真代码, pdk选择默认的ics55, 时钟填写clock
+![new-workspace](picture/new-workspace.png)
 
-![Design-Files](Design-Files.png)
+对于`mpc-frame`设计的项目, 选择"mpc-frame/designs/your_design/rtl", 系统会自动识别RTL代码
 
+![design-files-rtl](picture/design-files-rtl.png)
 
+pdk选择默认的ics55
+
+![pdk-config](picture/pdk-config.png)
+
+![spec-setting](picture/spec-setting.png)
+
+### 运行后端流程
 进入工作区后, 点击右上角区域`Flow status`的启动按钮, 自动运行从`synthesis`到`Harden`共12个流程
 
-![Flow-status](Flow-status.png)
+![Flow-status](picture/Flow-status.png)
 
-完成后点击左上角File -> `Export Signoff Package` 导出signoff package, 解压signoff_package, 目录结构如下(仅展示部分内容)
+### 导出signoff Package
+完成后点击左上角File -> `Export Signoff Package` 导出signoff package,
+
+![file_signoff](picture/file_signoff.png)
+
+解压signoff_package, 目录结构如下(仅展示部分内容)
+
 ```txt
 .
 ├── README.md
@@ -62,12 +87,22 @@ chmod +x <latest-release-file>.AppImage
 ### ECOSFactory云平台
 注册账号后, 在主页点击Submit Design -> 选择MPC-Frame -> Continue, 输入名称后, 上传def文件和RTL源文件, 点击Submit提交
 
-![ECOSFactory](ECOSFactory.png)
+![ECOSFactory](picture/ECOSFactory.png)
 
-![Design-submission](Design-submission.png)
+![Design-submission](picture/Design-submission.png)
 
-![Submit-File](Submit-File.png)
+![Submit-File](picture/Submit-File.png)
 
-设计提交完成后, 即可下单, 点击`Order Shuttle`, 选择MPC-Frame -> 点击Continue -> 选择你提交的设计或者上传新设计 -> 选择`Engineering review assist`, `Backend support`, `Open-source incentive`三项服务 -> 填写个人信息 -> 确认下单
+设计提交完成后, 即可下单, 点击`Order Shuttle`
 
-![shuttle-services](shuttle-services.png)
+![Order_Shuttle](picture/Order_Shuttle.png)
+
+选择MPC-Frame -> 点击Continue -> 选择你提交的设计或者上传新设计 -> 选择`Engineering review assist`, `Backend support`, `Open-source incentive`三项服务 -> 填写个人信息 -> 确认下单
+
+![Shuttle](picture/Shuttle.png)
+
+![shuttle-services](picture/shuttle-services.png)
+
+![personal_info](picture/personal_info.png)
+
+![place order](picture/place_order.png)
