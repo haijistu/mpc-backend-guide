@@ -17,25 +17,25 @@ chmod +x <latest-release-file>.AppImage
 ```sh
 sudo apt install libfuse2
 ```
-![ecos-studio-HOME](picture/ecos-studio-HOME.png)
+![ecos-studio-HOME](../ScreenShots/ecos-studio-HOME.png)
 
 ### 下载资源
 点击`Recourse Manager`进入资源管理器, 在左侧一栏下载相应资源
 - `MPC`: `mpc-frame`
 - `PDKs`: `ics55`
 
-![MPC-frame-resource.png](picture/MPC-frame-resource.png)
+![MPC-frame-resource.png](../ScreenShots/MPC-frame-resource.png)
 
-![Resource-Manager](picture/Resource-Manager.png)
+![Resource-Manager](../ScreenShots/Resource-Manager.png)
 
 ### 创建新项目
 基于`ecos-frame`创建，回到Project Management
 
-![Project-Management](picture/Project-Management.png)
+![Project-Management](../ScreenShots/Project-Management.png)
 
 点击`New project`创建新的项目
 
-![new-project](picture/new-project.png)
+![new-project](../ScreenShots/new-project.png)
 
 点击`New workspace`创建新的工作区
 - `Project Setup` - 选择已有项目目录或创建新的项目目录
@@ -45,27 +45,33 @@ sudo apt install libfuse2
 - `PDK Config` - 使用ECC默认的PDK配置, 或手动选择工艺LEF、单元LEF和Liberty文件
 - `Spec Setting` - 配置设计、时钟、Die面积、利用率、扇出及相关参数
 
-![new-workspace](picture/new-workspace.png)
+![new-workspace](../ScreenShots/new-workspace.png)
 
 对于`mpc-frame`设计的项目, 选择"mpc-frame/designs/your_design/rtl", 系统会自动识别RTL代码
 
-![design-files-rtl](picture/design-files-rtl.png)
+![design-files-rtl](../ScreenShots/design-files-rtl.png)
 
 pdk选择默认的ics55
 
-![pdk-config](picture/pdk-config.png)
+![pdk-config](../ScreenShots/pdk-config.png)
 
-![spec-setting](picture/spec-setting.png)
+![spec-setting](../ScreenShots/spec-setting.png)
 
 ### 运行后端流程
 进入工作区后, 点击右上角区域`Flow status`的启动按钮, 自动运行从`synthesis`到`Harden`共12个流程
 
-![Flow-status](picture/Flow-status.png)
+![Flow-status](../ScreenShots/Flow-status.png)
 
 ### 导出signoff Package
 完成后点击左上角File -> `Export Signoff Package` 导出signoff package,
 
-![file_signoff](picture/file_signoff.png)
+![file_signoff](../ScreenShots/file_signoff.png)
+
+![export_signoff](../ScreenShots/export_signoff.png)
+
+常见问题：存在时序违例，需要优化设计或降低目标频率
+
+![Setup_Violation](../ScreenShots/Setup_Violation.png)
 
 解压signoff_package, 目录结构如下(仅展示部分内容)
 
@@ -87,22 +93,22 @@ pdk选择默认的ics55
 ### ECOSFactory云平台
 注册账号后, 在主页点击Submit Design -> 选择MPC-Frame -> Continue, 输入名称后, 上传def文件和RTL源文件, 点击Submit提交
 
-![ECOSFactory](picture/ECOSFactory.png)
+![ECOSFactory](../ScreenShots/ECOSFactory.png)
 
-![Design-submission](picture/Design-submission.png)
+![Design-submission](../ScreenShots/Design-submission.png)
 
-![Submit-File](picture/Submit-File.png)
+![Submit-File](../ScreenShots/Submit-File.png)
 
 设计提交完成后, 即可下单, 点击`Order Shuttle`
 
-![Order_Shuttle](picture/Order_Shuttle.png)
+![Order_Shuttle](../ScreenShots/Order_Shuttle.png)
 
 选择MPC-Frame -> 点击Continue -> 选择你提交的设计或者上传新设计 -> 选择`Engineering review assist`, `Backend support`, `Open-source incentive`三项服务 -> 填写个人信息 -> 确认下单
 
-![Shuttle](picture/Shuttle.png)
+![Shuttle](../ScreenShots/Shuttle.png)
 
-![shuttle-services](picture/shuttle-services.png)
+![shuttle-services](../ScreenShots/shuttle-services.png)
 
-![personal_info](picture/personal_info.png)
+![personal_info](../ScreenShots/personal_info.png)
 
-![place order](picture/place_order.png)
+![place order](../ScreenShots/place_order.png)
